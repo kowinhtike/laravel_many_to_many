@@ -48,4 +48,14 @@ class User extends Authenticatable
     public function roles(){
         return $this->belongsToMany(Role::class,'role_users');
     }
+
+    public function slot1()
+    {
+        return $this->hasMany(GameMatch::class, 'user1_id');
+    }
+
+    public function slot2()
+    {
+        return $this->hasMany(GameMatch::class, 'user2_id');
+    }
 }
